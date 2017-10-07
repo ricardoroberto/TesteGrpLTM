@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Estoque.Api", "Estoque.Api\Estoque.Api.csproj", "{ABA78270-80E0-47F9-9A55-8617A014F0BC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Commom - Up to Private Nuget", "_Commom - Up to Private Nuget", "{F2EBBC55-FCCD-4DF2-B913-0F721613A77D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Commom - Subir para Nuget privado", "_Commom - Subir para Nuget privado", "{F2EBBC55-FCCD-4DF2-B913-0F721613A77D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commom.Contracts", "Commom\Commom.Contracts\Commom.Contracts.csproj", "{460B3584-A7BA-463D-8B20-E851B0301F2B}"
 EndProject
