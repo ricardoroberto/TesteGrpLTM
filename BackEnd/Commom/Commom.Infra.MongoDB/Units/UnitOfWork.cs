@@ -8,10 +8,10 @@ namespace Commom.Infra.MongoDB.Units
         string _mongoDbConnString = "";
         string _mongoDbName = "";
 
-        public UnitOfWork(string mongoDBString, string DataBaseName)
+        public UnitOfWork(string mongoDBString, string dataBaseName)
         {
             _mongoDbConnString = mongoDBString;
-            _mongoDbName = DataBaseName;
+            _mongoDbName = dataBaseName;
         }
 
         public TEntity GetSession<TEntity>() where TEntity : class

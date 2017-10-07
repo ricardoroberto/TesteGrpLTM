@@ -19,7 +19,7 @@ namespace Estoque.Service
         public IEnumerable<Produto> Listar(ProdutoListarCommand filtroLista)
         {
             IEnumerable<Produto> list = null;
-            if (String.IsNullOrEmpty(filtroLista.NomeFiltro))
+            if (String.IsNullOrEmpty(filtroLista?.NomeFiltro))
                 list = _repProduto.GetAll();
             else
                 list = _repProduto.GetIniciadoPorNome(filtroLista.NomeFiltro);

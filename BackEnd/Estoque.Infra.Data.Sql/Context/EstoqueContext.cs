@@ -6,7 +6,7 @@ namespace Estoque.Infra.Data.Sql.Context
 {
     public class EstoqueContext: DbContext
     {
-        public EstoqueContext() : base(ConfigurationManager.AppSettings["CONEXAO_DB"])
+        public EstoqueContext() : base(ConfigurationManager.ConnectionStrings["EstoqueSql"].ConnectionString)
         {
         }
 
