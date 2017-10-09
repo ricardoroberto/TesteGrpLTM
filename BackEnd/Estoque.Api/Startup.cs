@@ -22,7 +22,7 @@ namespace Estoque.Api
         /// Modificando a linha abaixo, você modifica qual o SGDB utilizado.
         /// Foram criadas duas libraries. Uma para SQL Server e outra para MongoDB
         /// </summary>
-        public static readonly DbEngineEnum DbEngine = DbEngineEnum.MongoDb;
+        public static readonly DbEngineEnum DbEngine = DbEngineEnum.SqlServer;
         
         public void Configuration(IAppBuilder app)
         {

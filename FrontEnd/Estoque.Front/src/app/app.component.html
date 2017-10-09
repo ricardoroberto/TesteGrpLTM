@@ -13,19 +13,19 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li dropdown>
+          <li dropdown *ngIf="mostrarMenu">
+              <a href dropdownToggle (click)="false">Produtos <span class="caret"></span></a>
+              <ul *dropdownMenu class="dropdown-menu">
+                <li><a routerLink="/produto">Produtos</a></li>
+              </ul>
+          </li>
+          <li dropdown *ngIf="mostrarMenu">
           <a href dropdownToggle (click)="false">Estoque <span class="caret"></span></a>
           <ul *dropdownMenu class="dropdown-menu">
-            <li><a href="#">Atual</a></li>
+            <li><a routerLink="/produto">Atual</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Entradas</a></li>
-            <li><a href="#">Saídas</a></li>
-          </ul>
-        </li>
-        <li dropdown>
-          <a href dropdownToggle (click)="false">Produtos <span class="caret"></span></a>
-          <ul *dropdownMenu class="dropdown-menu">
-            <li><a href="#">Produtos</a></li>
+            <li><a routerLink="/produto">Entradas</a></li>
+            <li><a routerLink="/produto">Saídas</a></li>
           </ul>
         </li>
       </ul>
@@ -34,7 +34,7 @@
           <a href dropdownToggle (click)="false">Login <span class="caret"></span></a>
           <ul *dropdownMenu class="dropdown-menu">
             <li routerLinkActive="active" ><a routerLink="/login">Entrar</a></li>
-            <li><a href="#">Solicitar acesso</a></li>
+            <li routerLinkActive="active" ><a routerLink="/loginsolicitar">Solicitar acesso</a></li>
           </ul>
         </li>
       </ul>

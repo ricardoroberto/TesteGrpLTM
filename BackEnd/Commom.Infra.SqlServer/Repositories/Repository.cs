@@ -15,7 +15,8 @@ namespace Commom.Infra.SqlServer.Repositories
 
         public TEntity GetById(TPrimaryKeyType id)
         {
-            var entity = _db.Set<TEntity>().SingleOrDefault(u => u.Id.Equals(id));
+            var list = _db.Set<TEntity>().Where(u => u.Id.ToString() == id.ToString());
+            var entity = list.Count() > 0 ? list.First() : null;
             return entity;
         }
 

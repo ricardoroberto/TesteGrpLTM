@@ -7,5 +7,6 @@ namespace Estoque.Domain.Contracts.AppServices
     {
         UsuarioLogadoReturn Login(UsuarioLoginCommand login);
         void Registrar(UsuarioRegistroCommand registro);
+        void RotaPermitida(string userName, string rotaCaminho);
     }
 }

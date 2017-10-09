@@ -3,6 +3,7 @@ using Estoque.Domain.Contracts.Repositories;
 using Estoque.Domain.Dto.Commands.Usuarios;
 using Estoque.Domain.Dto.Returns;
 using System;
+using System.Linq;
 
 namespace Estoque.Service
 {
@@ -30,6 +31,24 @@ namespace Estoque.Service
         public void Registrar(UsuarioRegistroCommand registro)
         {
             throw new NotImplementedException();
+        }
+
+        public void RotaPermitida(string userName, string rotaCaminho)
+        {
+            var usr = _repUsuario.GetById(userName);
+            var perms = usr.Permissoes.Select(s => s.NomePermissao);
+            if (perms.Contains("Administrador"))
+            {
+
+            }
+            else if (perms.Contains("Estoquista"))
+            {
+
+            }
+            else
+            {
+
+            }
         }
     }
 }
