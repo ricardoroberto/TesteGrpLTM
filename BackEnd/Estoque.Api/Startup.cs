@@ -1,5 +1,5 @@
 ﻿using Commom.Api.OAuthServer;
-using Estoque.Api.App_Start;
+using Commom.Domain.Contracts.UserValidate;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
@@ -22,13 +22,14 @@ namespace Estoque.Api
         /// Modificando a linha abaixo, você modifica qual o SGDB utilizado.
         /// Foram criadas duas libraries. Uma para SQL Server e outra para MongoDB
         /// </summary>
-        public static readonly DbEngineEnum DbEngine = DbEngineEnum.SqlServer;
+        public static readonly DbEngineEnum DbEngine = DbEngineEnum.MongoDb;
         
         public void Configuration(IAppBuilder app)
         {
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
 
-            var authProvider = new OAuthServerProvider();
+            var userValidate = System.Web.Mvc.DependencyResolver.Current.GetService(typeof(IUserValidate)) as IUserValidate;
+            var authProvider = new OAuthServerProvider(userValidate);
             var options = new OAuthAuthorizationServerOptions
             {
                 AllowInsecureHttp = true,

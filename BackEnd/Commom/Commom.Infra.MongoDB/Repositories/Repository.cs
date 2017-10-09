@@ -8,11 +8,11 @@ namespace Commom.Infra.MongoDB.Repositories
     public class Repository<TPrimaryKeyType, TEntity> where TEntity : IEntityBase<TPrimaryKeyType>
     {
         protected MongoDatabase _db = null;
-        string _customCOllectionName = "";
+        string _customCollectionName = "";
         public Repository(IUnitOfWork unitOfWork, string customCollectionName = null)
         {
             _db = unitOfWork.GetSession<MongoDatabase>();
-            _customCOllectionName = customCollectionName;
+            _customCollectionName = customCollectionName;
         }
 
         public TEntity GetById(TPrimaryKeyType id)
@@ -111,7 +111,7 @@ namespace Commom.Infra.MongoDB.Repositories
 
         protected string GetName()
         {
-            return _customCOllectionName != null ? _customCOllectionName : typeof(TEntity).Name.ToLower() + "s";
+            return !string.IsNullOrEmpty(_customCollectionName) ? _customCollectionName : typeof(TEntity).Name.ToLower() + "s";
         }
     }
 }

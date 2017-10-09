@@ -4,6 +4,7 @@ using Estoque.Domain.Contracts.Repositories;
 using Estoque.Infra.Data.MongoDb.Repositories.Produtos;
 using Estoque.Infra.Data.MongoDb.Repositories.Usuarios;
 using Ninject;
+using System.Configuration;
 
 namespace Estoque.IOC.Repositories
 {
@@ -11,9 +12,9 @@ namespace Estoque.IOC.Repositories
     {
         public void Register(IKernel kernel)
         {
-            kernel.Bind<IRepositoryUsuario>().To<RepositoryUsuario>();
-            kernel.Bind<IRepositoryProduto>().To<RepositoryProduto>();
-            kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
+            kernel.Bind<IRepositoryUsuario>().To<RepositoryUsuario>().WithConstructorArgument("customCollectionName", "");
+            kernel.Bind<IRepositoryProduto>().To<RepositoryProduto>().WithConstructorArgument("customCollectionName", "");
+            kernel.Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument("mongoDBString", ConfigurationManager.ConnectionStrings["EstoqueMongoDb"].ConnectionString).WithConstructorArgument("dataBaseName", "estoquetest");
         }
     }
 }

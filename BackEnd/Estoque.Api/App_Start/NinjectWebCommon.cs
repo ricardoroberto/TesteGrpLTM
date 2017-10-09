@@ -63,9 +63,10 @@ namespace Estoque.Api.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             IRegisterRepository repRegister = null;
-            if (Startup.DbEngine == DbEngineEnum.MongoDb) repRegister = new RegisterSqlServer();
-            if (Startup.DbEngine == DbEngineEnum.SqlServer) repRegister = new RegisterMongo();
+            if (Startup.DbEngine == DbEngineEnum.SqlServer) repRegister = new RegisterSqlServer();
+            if (Startup.DbEngine == DbEngineEnum.MongoDb) repRegister = new RegisterMongo();
 
+            repRegister.Register(kernel);
             RegisterAppServices.Register(kernel);
         }        
     }
