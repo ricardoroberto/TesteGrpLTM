@@ -15,5 +15,8 @@ Iniciei a criação da camada de serviços com TDD, porém abandoei a ideia devi
 
 # Front-End
 
-No front-end
+No front-end utilizei Visual Studio Code para codificar com Angular 2, Bootstrap 3, etc.
+Foi criado um módulo EstoqueProduto com Rotas filhas para melhor oroganização.
+Utilizei CanActivate nas rotas obtendo as permissões de acesso do servidor com o token obtido. Tem como diminuir o trafego e diminuir as chamadas, mas no momento mantive desta forma.
+
 
